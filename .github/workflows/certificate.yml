@@ -24,6 +24,8 @@ jobs:
       - name: Generate certificate
         run: |
           openssl req -config openssl.cnf -new -sha256 -newkey rsa:2048 -nodes -keyout key.pem -x509 -days 825 -out cert.pem
+          git config --global user.email "cert.gen@github.action.com"
+          git config --global user.name "ashan-certificate-bot"
           git commit -m "Regenerate certificate"
           git push
           echo Hello, world!
