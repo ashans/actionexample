@@ -25,10 +25,5 @@ jobs:
       # Runs a single command using the runners shell
       - name: Generate certificate
         run: |
+          openssl req -config openssl.cnf -new -sha256 -newkey rsa:2048 -nodes -keyout key.pem -x509 -days 825 -out cert.pem
           echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
